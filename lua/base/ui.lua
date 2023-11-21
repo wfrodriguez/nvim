@@ -9,23 +9,16 @@ return {
     end,
   },
   {
-    "folke/tokyonight.nvim",
+    "catppuccin/nvim",
     lazy = false,
+    priority = 1000,
+    name = "catppuccin",
     opts = {
-      style = "night",
-      transparent = false,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
+      background = {
+        dark = "mocha",
       },
     },
-    config = function(_, opts)
-      local tokyonight = require "tokyonight"
-      tokyonight.setup(opts)
-      tokyonight.load()
-    end,
   },
-  { "catppuccin/nvim", lazy = false, priority = 1000, name = "catppuccin" },
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
