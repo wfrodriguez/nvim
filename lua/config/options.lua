@@ -45,4 +45,11 @@ vim.o.completeopt = "menuone,noselect"
 -- Make sure your terminal supports this
 vim.o.termguicolors = true
 
+vim.o.listchars = "eol:$,tab:<>,trail:~,extends:❯,precedes:❮,space:·,nbsp:§,multispace:┄┄┄┊"
+vim.o.list = true
+
+vim.o.magic = true
+
+vim.o.wrap = false
+
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
