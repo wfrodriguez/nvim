@@ -65,6 +65,7 @@ return {
     },
   },
   { "nvim-lualine/lualine.nvim" },
+  { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
