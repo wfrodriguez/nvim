@@ -64,4 +64,24 @@ return {
       { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll backward"},
     },
   },
+  { "nvim-lualine/lualine.nvim" },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {}, -- this is equalent to setup({}) function
+  },
+  {
+    "smoka7/hop.nvim",
+    event = "VeryLazy",
+    opts = {
+      keys = "iretonasgpduyfchlmjwq",
+      case_insensitive = false,
+    },
+    config = function(_, opts)
+      local keymap = vim.keymap.set
+      keymap("n", "<leader>hw", "<cmd>HopWord<cr>", { desc = "Hop Word" })
+      keymap("n", "<leader>hc", "<cmd>HopChar2<cr>", { desc = "Hop Char" })
+      keymap("n", "<leader>hl", "<cmd>HopLine<cr>", { desc = "Hop Line" })
+    end,
+  },
 }
