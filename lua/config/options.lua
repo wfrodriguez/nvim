@@ -53,3 +53,5 @@ vim.o.magic = true
 vim.o.wrap = false
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+vim.opt.winbar = "%{%v:lua.require'utils.winbar'.get_winbar()%}"
