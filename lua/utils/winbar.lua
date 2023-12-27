@@ -12,6 +12,10 @@ local function get_buf_option(opt)
   end
 end
 
+local function is_empty(s)
+  return s == nil or s == ""
+end
+
 local function get_modified()
   local file_name = vim.fn.expand "%:t"
   local extension = vim.fn.expand "%:e"
@@ -26,15 +30,15 @@ local function get_modified()
 
     if get_buf_option "mod" then
       local mod = icons.git.Mod
-      return mod .. " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. file_name
+      return mod .. " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. "  " .. file_name
     end
-    return "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. file_name
+    return "%#" .. hl_group .. "#" .. file_icon .. "%*" .. "  " .. file_name
   end
 end
 
 local function get_location()
   local location = navic.get_location()
-  if not utils.is_empty(location) then
+  if not is_empty(location) then
     return " " .. icons.ui.ChevronRight .. " " .. location
   end
   return ""

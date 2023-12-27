@@ -28,6 +28,7 @@ return {
     opts = {},
     config = function(_, opts)
       require("go").setup(opts)
+      vim.keymap.set("n", "<F12>", "<CMD>GoImport<CR>", { desc = "Add imports to Go code" })
     end,
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },

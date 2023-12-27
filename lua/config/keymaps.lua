@@ -1,10 +1,10 @@
 local keymap = vim.keymap.set
 
 -- General
-keymap("n", "<leader>ww", ":w!<CR>")
-keymap("n", "<leader>wa", ":wall!<CR>")
-keymap("n", "<leader>qq", ":q!<CR>")
-keymap("n", "<leader>qa", ":qall!<CR>")
+keymap("n", "<leader>ww", "<cmd>w!<CR>")
+keymap("n", "<leader>wa", "<cmd>wall!<CR>")
+keymap("n", "<leader>qq", "<cmd>q!<CR>")
+keymap("n", "<leader>qa", "<cmd>qall!<CR>")
 
 -- Remap for dealing with word wrap
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
@@ -21,11 +21,11 @@ keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 
 -- Paste
-keymap("n", "]p", "o<Esc>p", { desc = "Paste below" })
+keymap("", "]p", "o<Esc>p", { desc = "Paste below" })
 keymap("n", "]P", "O<Esc>p", { desc = "Paste above" })
 
 -- Better escape
-keymap("n", "<Esc>", ":nohl<CR>:echo<CR>") -- ESC in normal mode)
+keymap("n", "<Esc>", "<cmd>nohl<CR>", { desc = "ESC in normal mode" }) -- ESC in normal mode)
 keymap("i", "<M-f>", "<ESC>")
 keymap("t", "<M-f>", "<C-\\><C-n>")
 
@@ -57,10 +57,10 @@ keymap("n", "<C-n>", "<C-w>k")
 keymap("n", "<C-s>", "<C-w>l")
 
 -- Buffer
-keymap("n", "<C-h>", ":bp<CR>")
-keymap("n", "<C-l>", ":bn<CR>")
-keymap("n", "<leader>bd", ":bd<CR>")
-keymap("n", "<leader>bdd", ":bd!<CR>")
+keymap("n", "<C-h>", "<cmd>bp<CR>")
+keymap("n", "<C-l>", "<cmd>bn<CR>")
+keymap("n", "<leader>bd", "<cmd>bd<CR>")
+keymap("n", "<leader>bdd", "<cmd>bd!<CR>")
 
 -- Add undo break-points
 keymap("i", ",", ",<c-g>u")
@@ -72,7 +72,7 @@ keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
 -- Paste over currently selected text without yanking it
-keymap("v", "p", '"_dp')
+keymap("v", "p", '"_dP')
 -- X clipboard
 keymap("x", "<leader>y", '"+y')
 keymap("n", "<leader>p", '"+p')

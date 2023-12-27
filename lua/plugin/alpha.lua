@@ -40,7 +40,7 @@ return {
         dashboard.button("f", "  -> Buscar archivo", ":Telescope find_files<CR>"),
         dashboard.button("h", "  -> Archivos recientes", ":Telescope oldfiles<CR>"),
         dashboard.button("l", "鈴 -> Lazy", ":Lazy<CR>"),
-        dashboard.button("l", "  -> Mason", ":Mason<CR>"),
+        dashboard.button("m", "  -> Mason", ":Mason<CR>"),
         dashboard.button("c", "  -> Configuraciones", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
         dashboard.button("q", "  -> Salir de NVIM", ":qa!<CR>"),
       }

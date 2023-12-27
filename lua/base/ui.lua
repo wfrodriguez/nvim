@@ -9,15 +9,16 @@ return {
     end,
   },
   {
-    "catppuccin/nvim",
+    "gbprod/nord.nvim",
     lazy = false,
     priority = 1000,
-    name = "catppuccin",
-    opts = {
-      background = {
-        dark = "mocha",
-      },
-    },
+    config = function()
+      require("nord").setup {}
+      vim.cmd.colorscheme "nord"
+    end,
+  },
+  install = {
+    colorscheme = { "nord" },
   },
   {
     "stevearc/dressing.nvim",
@@ -64,8 +65,69 @@ return {
       { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll backward"},
     },
   },
-  { "nvim-lualine/lualine.nvim" },
-  { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "meuter/lualine-so-fancy.nvim",
+    },
+    lazy = false,
+    opts = {
+      options = {
+        theme = "nord",
+        component_separators = { left = "│", right = "│" },
+        section_separators = { left = "", right = "" },
+        globalstatus = true,
+        refresh = {
+          statusline = 100,
+        },
+      },
+      sections = {
+        lualine_a = {
+          { "fancy_mode", width = 3 },
+        },
+        lualine_b = {
+          { "fancy_branch" },
+          { "fancy_diff" },
+        },
+        lualine_c = {
+          { "fancy_cwd", substitute_home = true },
+        },
+        lualine_x = {
+          { "fancy_macro" },
+          { "fancy_diagnostics" },
+          { "fancy_searchcount" },
+          { "fancy_location" },
+        },
+        lualine_y = {
+          { "fancy_filetype", ts_icon = " " },
+        },
+        lualine_z = {
+          { "fancy_lsp_servers" },
+        },
+      },
+    },
+  },
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "gbprod/nord.nvim",
+    },
+    version = "*",
+    event = "VeryLazy",
+    opts = {
+      options = {
+        separator_style = "thin",
+        buffer_close_icon = "󰅖 ",
+        modified_icon = "● ",
+        close_icon = " ",
+        left_trunc_marker = " ",
+        right_trunc_marker = " ",
+      },
+      -- highlights = require("nord.plugins.bufferline").akinsho(),
+    },
+  },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
@@ -79,10 +141,23 @@ return {
       case_insensitive = false,
     },
     config = function(_, opts)
+      require("hop").setup(opts)
       local keymap = vim.keymap.set
       keymap("n", "<leader>hw", "<cmd>HopWord<cr>", { desc = "Hop Word" })
       keymap("n", "<leader>hc", "<cmd>HopChar2<cr>", { desc = "Hop Char" })
       keymap("n", "<leader>hl", "<cmd>HopLine<cr>", { desc = "Hop Line" })
     end,
+  },
+  {
+    "liuchengxu/vista.vim",
+    config = function(_, opts)
+      vim.g.vista_ctags_cmd = {
+        go = "gotags",
+      }
+      vim.g.vista_echo_cursor = 0
+      vim.keymap.set("n", "<leader>tt", "<cmd>Vista!!<CR>", { desc = "Toggle Vista Tags" })
+    end,
+    lazy = false,
+    cmd = "Vista",
   },
 }
