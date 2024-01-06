@@ -75,8 +75,8 @@ keymap("n", "<leader>p", '"+p', {desc = 'Paste from Clipboard'})
 keymap("n", "<leader>P", '"+P', {desc = 'Paste before from Clipboard'})
 
 -- Insertar líneas en blanco
-keymap("n", "<Space>]", "o<Esc>")
-keymap("n", "<Space>[", "O<Esc>")
+keymap("n", "<Space>]", "o<Esc>", {desc = 'Insert line next'})
+keymap("n", "<Space>[", "O<Esc>", {desc = 'Insert line prev'})
 
 -- Auto indent
 keymap("n", "i", function()
