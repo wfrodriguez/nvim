@@ -18,11 +18,11 @@ require "utils.options"
 require("lazy").setup {
   spec = {
     { import = "pde" },
+    { import = "pde.ext" },
   },
   ui = {border = 'double'},
   defaults = { lazy = true, version = nil },
   install = { missing = true, colorscheme = { "ayu" } },
-  -- dev = { patterns = jit.os:find("Windows") and {} or { "alpha2phi" } },
   checker = { enabled = true },
   performance = {
     cache = {
