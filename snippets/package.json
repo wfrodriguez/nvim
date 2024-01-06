@@ -1,0 +1,57 @@
+{
+    "name": "custom-snippets",
+    "engines": {
+        "vscode": "^1.11.0"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "plaintext",
+                    "markdown",
+                    "tex",
+                    "html",
+                    "global",
+                    "all"
+                ],
+                "path": "./global.json"
+            },
+            {
+                "language": ["license"],
+                "path": "./license.json"
+            },
+            {
+                "language": ["gitcommit", "NeogitCommitMessage"],
+                "path": "./gitcommit.json"
+            },
+            {
+                "language": "lua",
+                "path": "./lua/lua.json"
+            },
+            {
+                "language": "luadoc",
+                "path": "./lua/luadoc.json"
+            },
+            {
+                "language": "go",
+                "path": "./go.json"
+            },
+            {
+                "language": "cobol",
+                "path": "./cobol/vscode_cobol.json"
+            },
+            {
+                "language": "cobol",
+                "path": "./cobol/vscode_cobol-compound.json"
+            },
+            {
+                "language": "cobol",
+                "path": "./cobol/vscode_cobol_dir.json"
+            },
+            {
+                "language": "cobol",
+                "path": "./cobol/vscode_cobol_jcl.json"
+            }
+        ]
+    }
+}
