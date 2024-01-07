@@ -2,7 +2,7 @@ return {
     {
         "Pocco81/true-zen.nvim",
         cmd = { 'TZNarrow', 'TZFocus', 'TZMinimalist', 'TZAtaraxis' },
-        config = function()
+        init = function()
             local keymap = vim.keymap.set
             keymap("n", "<leader>zn", ":TZNarrow<CR>", { desc = 'Narrow region' })
             keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", { desc = 'VNarrow region' })
@@ -55,5 +55,12 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         config = true,
+    },
+    {
+        "liuchengxu/vista.vim",
+        cmd = {'Vista'},
+        init = function()
+            vim.g.vista_ctags_cmd = { go = 'gotags'}
+        end,
     },
 }
