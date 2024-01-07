@@ -33,5 +33,11 @@ return {
       "MunifTanjim/nui.nvim",
       config = function()
       end
+    },
+    {
+      "SmiteshP/nvim-navic",
+      dependencies = { "neovim/nvim-lspconfig" },
+      lazy = false,
+      priority = 1000,
     }
   }

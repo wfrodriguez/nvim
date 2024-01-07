@@ -34,6 +34,11 @@ return {
             -- local settings = require('utils.lspsettings')
             lspZero.extend_lspconfig()
             lspZero.on_attach(function(client, bufnr)
+                -- nvim-navic
+                if client.server_capabilities.documentSymbolProvider then
+                    local navic = require "nvim-navic"
+                    navic.attach(client, bufnr)
+                end
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
                 lspZero.default_keymaps({ buffer = bufnr })

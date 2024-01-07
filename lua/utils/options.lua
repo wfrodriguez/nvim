@@ -62,5 +62,7 @@ vim.o.formatoptions = "cq"
 vim.o.textwidth = 130
 vim.o.wrapmargin = 130
 
+vim.opt.winbar = "%{%v:lua.require'utils.winbar'.get_winbar()%}"
+
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
