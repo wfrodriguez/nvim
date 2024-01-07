@@ -50,5 +50,17 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
+-- Márgenes en programas cobol
+local cobolMargins = vim.api.nvim_create_augroup("cobolMargins", {})
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = { '*.cbl', '*.cob', '*.cobol' },
+  group = cobolMargins,
+  callback = function()
+    vim.cmd [[hi ColorColumn guibg=#333333 ]]
+    -- vim.api.nvim_set_hl(0, 'ColorColumn', {bg = "#333333" })
+    vim.wo.colorcolumn = '7,12,73'
+  end,
+})
+
 -- No comentar nuevas líneas
 vim.cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
