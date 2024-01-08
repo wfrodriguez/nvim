@@ -87,11 +87,11 @@ keymap("n", "i", function()
   end
 end, { expr = true })
 
--- Resumen del proyecto a traves de Tokei
+-- Extra
 keymap('n','<leader>xx', "<cmd>luado require('utils.term').project_info_toggle()<CR>", {desc = 'Project info'} )
 keymap('n','<leader>xs', "<cmd>luado require('utils.term').so_input()<CR>", {desc = 'StackOverflow'} )
 keymap('n','<leader>xc', "<cmd>luado require('utils.term').cht()<CR>", {desc = '//Cheatsheet.sh'} )
-
+keymap('n','<leader>vv', "<cmd>Vista!!<CR>", {desc = 'Vista tags'} )
 
 
 

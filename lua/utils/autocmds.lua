@@ -36,6 +36,10 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
   end,
 })
 
+local is_int = function(n)
+  return (type(n) == "number") and (math.floor(n) == n)
+end
+
 -- Ubicar el cursor es la última posición
 local lastEdited = vim.api.nvim_create_augroup("lastEdited", {})
 vim.api.nvim_create_autocmd("BufReadPost", {
@@ -44,7 +48,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function()
     pos = vim.fn.line "."
     fin = vim.fn.line "$"
-    if pos > 0 and pos <= fin then
+    if is_int(pos) and is_int(fin) and pos > 0 and pos <= fin then
       vim.cmd [[normal! g`"]]
     end
   end,
@@ -60,6 +64,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     -- vim.api.nvim_set_hl(0, 'ColorColumn', {bg = "#333333" })
     vim.wo.colorcolumn = '7,12,73'
   end,
+})
+
+-- Formato de código antes de guardar
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+augroup("__formatter__", { clear = true })
+autocmd("BufWritePost", {
+	  group = "__formatter__",
+    command = ":FormatWrite",
 })
 
 -- No comentar nuevas líneas
