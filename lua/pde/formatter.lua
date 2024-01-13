@@ -41,6 +41,36 @@ return {
 							stdin = true,
 						}
 					end,
+					javascript = {
+						-- prettierd
+						function()
+							return {
+								exe = "prettierd",
+								args = { vim.api.nvim_buf_get_name(0) },
+								stdin = true,
+							}
+						end,
+					},
+					html = {
+						-- prettierd
+						function()
+							return {
+								exe = "prettierd",
+								args = { vim.api.nvim_buf_get_name(0) },
+								stdin = true,
+							}
+						end,
+					},
+					css = {
+						-- prettierd
+						function()
+							return {
+								exe = "prettierd",
+								args = { vim.api.nvim_buf_get_name(0) },
+								stdin = true,
+							}
+						end,
+					},
 					-- Use the special "*" filetype for defining formatter configurations on any filetype
 					["*"] = {
 						-- "formatter.filetypes.any" defines default configurations for any
