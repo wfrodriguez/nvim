@@ -32,7 +32,9 @@ return {
 	},
 	{
 		"MunifTanjim/nui.nvim",
-		config = function() end,
+		config = function()
+			require("util.ui").setup()
+		end,
 	},
 	{
 		"SmiteshP/nvim-navic",

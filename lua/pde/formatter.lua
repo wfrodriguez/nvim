@@ -24,6 +24,7 @@ return {
 					html = require("formatter.filetypes.html").prettierd,
 					css = require("formatter.filetypes.css").prettierd,
 					json = require("formatter.filetypes.json").jq,
+					cs = require("formatter.filetypes.cs").csharpier,
 
 					-- Use the special "*" filetype for defining formatter configurations on any filetype
 					["*"] = {
