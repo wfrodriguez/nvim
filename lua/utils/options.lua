@@ -7,7 +7,7 @@ vim.g.maplocalleader = "\\"
 -- See `:help vim.o`
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -65,4 +65,3 @@ vim.o.wrapmargin = 130
 vim.opt.winbar = "%{%v:lua.require'utils.winbar'.get_winbar()%}"
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-
