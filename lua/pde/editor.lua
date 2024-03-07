@@ -12,6 +12,16 @@ return {
 		end,
 	},
 	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		opts = {
+			highlights = {
+				FloatBorder = { fg = "#a9b1d6" },
+			},
+		},
+	},
+
+	{
 		"chentoast/marks.nvim",
 		lazy = false,
 		config = function()
