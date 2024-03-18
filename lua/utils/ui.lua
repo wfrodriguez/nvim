@@ -20,15 +20,15 @@ local function launch(cmd, dir)
 	}):toggle()
 end
 
-function M.shell()
+function M.Shell()
 	launch("bash", cwd)
 end
 
-function M.nami()
+function M.Nami()
 	launch("nami", cwd)
 end
 
-function M.projectInfo()
+function M.ProjectInfo()
 	launch("tokei && echo 'Presione cualquier tecla para continuar ...' && read", cwd)
 end
 
